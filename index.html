@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Digital Services Training</title>
+
+<style>
+
+/* SEARCH BAR */
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #ccd5e1;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 4px 15px #00000010;
+}
+
+.search-container input:focus {
+    border-color: #2876c7;
+    box-shadow: 0 0 8px #2876c755;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f7fc;
+    color: #183153;
+}
+
+/* NAVBAR */
+
+header {
+    background: linear-gradient(135deg, #123c78, #1766b1, #0b2545);
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 4px 18px #00000025;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+    background: #ffffff25;
+    transform: translateY(-2px);
+}
+
+#language {
+    padding: 9px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #0b2545, #1766b1, #2876c7);
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    background: white;
+    color: #123c78;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 7px;
+    margin-top: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* GENERAL SECTIONS */
+section {
+    padding: 60px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 29px;
+    margin-bottom: 35px;
+}
+
+/* SERVICE CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: linear-gradient(145deg, #ffffff, #f0f7ff);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #e2edff;
+    box-shadow: 0 8px 25px rgba(23, 102, 177, 0.10);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 30px rgba(23, 102, 177, 0.18);
+}
+    
+
+.card h3 {
+    color: #1766b1;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #526176;
+    line-height: 1.7;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 22px;
+    color: white;
+    background: linear-gradient(135deg, #1766b1, #3498db);
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.card a:hover {
+    background: linear-gradient(135deg, #104b85, #1766b1);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px #1766b140;
+}
+    
+
+/* PERSONAL GUIDE */
+.guide-box {
+    background: white;
+    max-width: 750px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px #00000010;
+}
+
+.guide-box select {
+    width: 100%;
+    padding: 13px;
+    margin: 15px 0;
+    border: 1px solid #ccd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.guide-step {
+    background: #edf4ff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    line-height: 1.8;
+    min-height: 100px;
+}
+
+.progress {
+    background: #dce5f1;
+    height: 8px;
+    border-radius: 10px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: #2876c7;
+    height: 100%;
+    width: 0%;
+    transition: 0.3s;
+}
+
+.guide-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    background: #1766b1;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 22px;
+    cursor: pointer;
+}
+
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ABOUT AND FAQ */
+.info-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+footer {
+    background: #123c78;
+    color: white;
+    padding: 30px 15px;
+    text-align: center;
+    line-height: 2;
+}
+
+footer a {
+    color: white;
+}
+
+@media(max-width:600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    section {
+        padding: 45px 6%;
+    }
+
+    .guide-box {
+        padding: 20px;
+    }
+}
+
+/* COMPLETE TRAINING TUTORIALS */
+
+.training-box {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px #00000012;
+}
+
+.training-box select {
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    border: 1px solid #ccd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.training-note {
+    background: #fff8e6;
+    border-left: 4px solid #e6a323;
+    padding: 15px;
+    margin-top: 20px;
+    line-height: 1.7;
+    border-radius: 5px;
+}
+
+.training-step {
+    background: #edf4ff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+    line-height: 1.9;
+    min-height: 160px;
+}
+
+.training-step h3 {
+    color: #1766b1;
+    margin-bottom: 12px;
+}
+
+.training-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.official-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #1766b1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.training-counter {
+    margin-top: 15px;
+    color: #526176;
+}
+
+@media(max-width:600px) {
+    .training-box {
+        padding: 20px;
+    }
+
+    .training-actions button {
+        flex: 1;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .search-container {
+        width: 90%;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+/* MOBILE HAMBURGER MENU */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    header {
+        position: relative;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    background: linear-gradient(135deg, #123c78, #1766b1);
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0 8px 18px #00000030;
+}
+
+header nav.active {
+    display: flex;
+}
+
+    header nav a {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+}
+
+#language {
+    padding: 6px;
+}
+
+/* SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
+
+/* CARD HOVER EFFECT */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px #00000020;
+}
+
+/* BUTTON ANIMATION */
+.btn,
+.action-btn {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover,
+.action-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+}
+
+/* SECTION ANIMATION */
+section {
+    animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="logo">Digital Services</div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<nav id="navMenu">
+
+        <a href="#home" data-en="Home" data-hi="होम">Home</a>
+        <a href="#services" data-en="Services" data-hi="सेवाएं">Services</a>
+        <a href="#training"
+   data-en="Training"
+   data-hi="प्रशिक्षण">Training</a>
+        <a href="#guide" data-en="Personal Guide" data-hi="व्यक्तिगत गाइड">Personal Guide</a>
+        <a href="#about" data-en="About" data-hi="हमारे बारे में">About</a>
+
+        <a href="#videos">Video Tutorials</a>
+
+        <select id="language" onchange="changeLanguage()">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+        </select>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div class="hero" id="home">
+    <h1 data-en="Welcome to Digital Services Training"
+        data-hi="डिजिटल सेवा प्रशिक्षण में आपका स्वागत है">
+        Welcome to Digital Services Training
+    </h1>
+
+    <p data-en="Learn DigiLocker, Aadhaar and PAN services through easy step-by-step tutorials. Start your digital learning journey today!"
+       data-hi="आसान चरण-दर-चरण ट्यूटोरियल के माध्यम से डिजिलॉकर, आधार और पैन सेवाएं सीखें। आज ही अपनी डिजिटल शिक्षा शुरू करें!">
+        Learn DigiLocker, Aadhaar and PAN services through easy step-by-step tutorials.
+    </p>
+
+    <a href="#services" class="btn"
+       data-en="Explore Services"
+       data-hi="सेवाएं देखें">
+       Explore Services
+    </a>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+
+   <h2 class="section-title"
+    data-en="Our Digital Services"
+    data-hi="हमारी डिजिटल सेवाएं">
+    Our Digital Services
+</h2>
+
+<div class="search-container">
+    <input
+        type="text"
+        id="serviceSearch"
+        placeholder="🔍 Search Digital Services..."
+        onkeyup="searchServices()"
+    >
+</div>
+    
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📁 DigiLocker</h3>
+
+            <p data-en="Learn how to create an account, access digital documents and download certificates."
+               data-hi="अकाउंट बनाना, डिजिटल दस्तावेज़ देखना और प्रमाणपत्र डाउनलोड करना सीखें।">
+                Learn how to create an account and access digital documents.
+            </p>
+
+            <a href="https://www.digilocker.gov.in/" target="_blank" rel="noopener">
+                <span data-en="Official Website →" data-hi="आधिकारिक वेबसाइट →">Official Website →</span>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>🪪 Aadhaar Services</h3>
+
+            <p data-en="Learn about Aadhaar download, address updates and other available services."
+               data-hi="आधार डाउनलोड, पता अपडेट और अन्य उपलब्ध सेवाओं के बारे में जानें।">
+                Learn about Aadhaar services.
+            </p>
+
+            <a href="https://myaadhaar.uidai.gov.in/" target="_blank" rel="noopener">
+                <span data-en="Official Website →" data-hi="आधिकारिक वेबसाइट →">Official Website →</span>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>💳 PAN Card</h3>
+
+            <p data-en="Understand PAN applications, corrections, e-PAN and related services."
+               data-hi="पैन आवेदन, सुधार, ई-पैन और संबंधित सेवाओं को समझें।">
+                Understand PAN card services.
+            </p>
+
+            <a href="https://www.incometax.gov.in/" target="_blank" rel="noopener">
+                <span data-en="Official Website →" data-hi="आधिकारिक वेबसाइट →">Official Website →</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- VIDEO TUTORIALS -->
+
+<section id="videos">
+
+    <h2 class="section-title"
+        data-en="Video Tutorials"
+        data-hi="वीडियो ट्यूटोरियल">
+        Video Tutorials
+    </h2>
+
+    <p style="text-align:center; margin-bottom:30px; color:#526176;"
+       data-en="Learn digital services through video lessons."
+       data-hi="वीडियो के माध्यम से डिजिटल सेवाएं सीखें।">
+       Learn digital services through video lessons.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📁 DigiLocker Tutorial</h3>
+            <p>Learn account creation, document access and certificate downloads.</p>
+            <a href="https://www.youtube.com/results?search_query=DigiLocker+complete+tutorial"
+               target="_blank" rel="noopener">
+               Watch Videos →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>🪪 Aadhaar Tutorial</h3>
+            <p>Learn e-Aadhaar download, address updates and Aadhaar services.</p>
+            <a href="https://www.youtube.com/results?search_query=UIDAI+Aadhaar+services+tutorial"
+               target="_blank" rel="noopener">
+               Watch Videos →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>💳 PAN Card Tutorial</h3>
+            <p>Learn PAN application, correction and e-PAN services.</p>
+            <a href="https://www.youtube.com/results?search_query=PAN+card+application+complete+tutorial"
+               target="_blank" rel="noopener">
+               Watch Videos →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COMPLETE TRAINING TUTORIALS -->
+
+<section id="training">
+
+    <h2 class="section-title"
+        data-en="Complete Training Tutorials"
+        data-hi="संपूर्ण प्रशिक्षण ट्यूटोरियल">
+        Complete Training Tutorials
+    </h2>
+
+    <div class="training-box">
+
+        <h3 data-en="Select a course"
+            data-hi="एक कोर्स चुनें">
+            Select a course
+        </h3>
+
+        <select id="tutorialSelect" onchange="resetTutorial()">
+            <option value="digilocker">DigiLocker / डिजिलॉकर</option>
+            <option value="aadhaar">Aadhaar / आधार</option>
+            <option value="pan">PAN Card / पैन कार्ड</option>
+        </select>
+
+        <p id="tutorialCounter" class="training-counter"></p>
+
+        <div class="progress">
+            <div class="progress-bar" id="tutorialProgress"></div>
+        </div>
+
+        <div class="training-step">
+
+            <h3 id="tutorialTitle"></h3>
+
+            <p id="tutorialText"></p>
+
+        </div>
+
+        <div class="training-note">
+
+            <b data-en="Safety Reminder:"
+               data-hi="सुरक्षा संबंधी सूचना:">
+                Safety Reminder:
+            </b>
+
+            <p data-en="Never share your OTP, password, Aadhaar number or PAN details with unknown people. Use only official government portals."
+               data-hi="अपना OTP, पासवर्ड, आधार नंबर या पैन विवरण किसी अनजान व्यक्ति से साझा न करें। केवल आधिकारिक सरकारी पोर्टल का उपयोग करें।">
+                Never share your OTP or password.
+            </p>
+
+        </div>
+
+        <a id="tutorialOfficialLink"
+           class="official-link"
+           href="https://www.digilocker.gov.in/"
+           target="_blank"
+           rel="noopener noreferrer">
+           Visit Official Website →
+        </a>
+
+        <div class="training-actions">
+
+            <button class="action-btn"
+                    id="tutorialPrev"
+                    onclick="previousTutorial()">
+                Previous
+            </button>
+
+            <button class="action-btn"
+                    id="tutorialNext"
+                    onclick="nextTutorial()">
+                Next Lesson
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PERSONAL GUIDE -->
+<section id="guide">
+
+    <h2 class="section-title"
+        data-en="Your Personal Guide"
+        data-hi="आपकी व्यक्तिगत गाइड">
+        Your Personal Guide
+    </h2>
+
+    <div class="guide-box">
+
+        <h3 data-en="Choose a service to learn"
+            data-hi="सीखने के लिए एक सेवा चुनें">
+            Choose a service to learn
+        </h3>
+
+        <select id="serviceSelect" onchange="resetGuide()">
+            <option value="digilocker">DigiLocker</option>
+            <option value="aadhaar">Aadhaar</option>
+            <option value="pan">PAN Card</option>
+        </select>
+
+        <p id="stepNumber">Step 1</p>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="guide-step">
+            <h3 id="stepTitle">Step 1</h3>
+            <p id="stepText"></p>
+        </div>
+
+        <div class="guide-buttons">
+            <button class="action-btn" id="prevBtn"
+                    onclick="previousStep()">
+                Back
+            </button>
+
+            <button class="action-btn" id="nextBtn"
+                    onclick="nextStep()">
+                Next Step
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2 class="section-title"
+        data-en="About This Website"
+        data-hi="इस वेबसाइट के बारे में">
+        About This Website
+    </h2>
+
+    <div class="info-box">
+        <p data-en="Our aim is to help people understand digital government services through simple educational guides."
+           data-hi="हमारा उद्देश्य आसान शैक्षिक गाइड के माध्यम से लोगों को डिजिटल सरकारी सेवाओं को समझने में मदद करना है।">
+            Our aim is to help people understand digital government services.
+        </p>
+
+        <br>
+
+        <b data-en="Important Notice:"
+           data-hi="महत्वपूर्ण सूचना:">
+            Important Notice:
+        </b>
+
+        <p data-en="This is an independent educational website and is not affiliated with any government department. Never share your OTP, password, Aadhaar or PAN details here."
+           data-hi="यह एक स्वतंत्र शैक्षिक वेबसाइट है और किसी सरकारी विभाग से संबद्ध नहीं है। यहां कभी भी अपना OTP, पासवर्ड, आधार या पैन विवरण साझा न करें।">
+            This is an independent educational website and is not affiliated with any government department.
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h3>Digital Services Training</h3>
+
+    <p data-en="Learn Today | Go Digital Tomorrow"
+       data-hi="आज सीखें | कल डिजिटल बनें">
+        Learn Today | Go Digital Tomorrow
+    </p>
+
+    <p>© 2026 Digital Services Training</p>
+</footer>
+
+<script>
+
+// LANGUAGE SYSTEM
+
+function changeLanguage() {
+
+    let lang = document.getElementById("language").value;
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-en]").forEach(element => {
+        element.textContent = element.getAttribute("data-" + lang);
+    });
+
+    updateGuide();
+    updateTutorial();
+}
+
+// PERSONAL GUIDE DATA
+
+const guides = {
+
+    digilocker: {
+        en: [
+            ["Step 1", "Open the official DigiLocker website."],
+            ["Step 2", "Choose Sign Up and enter the required details."],
+            ["Step 3", "Complete the required verification."],
+            ["Step 4", "Explore your Issued Documents section."]
+        ],
+
+        hi: [
+            ["चरण 1", "DigiLocker की आधिकारिक वेबसाइट खोलें।"],
+            ["चरण 2", "Sign Up चुनें और आवश्यक जानकारी भरें।"],
+            ["चरण 3", "आवश्यक सत्यापन पूरा करें।"],
+            ["चरण 4", "Issued Documents सेक्शन देखें।"]
+        ]
+    },
+
+    aadhaar: {
+        en: [
+            ["Step 1", "Open the official UIDAI My Aadhaar portal."],
+            ["Step 2", "Explore the available Aadhaar services."],
+            ["Step 3", "Select the service you want to learn."],
+            ["Step 4", "Follow the official instructions. Some services may require a visit to an Aadhaar centre."]
+        ],
+
+        hi: [
+            ["चरण 1", "UIDAI का आधिकारिक My Aadhaar पोर्टल खोलें।"],
+            ["चरण 2", "उपलब्ध आधार सेवाओं को देखें।"],
+            ["चरण 3", "जिस सेवा को सीखना है उसे चुनें।"],
+            ["चरण 4", "आधिकारिक निर्देशों का पालन करें। कुछ सेवाओं के लिए आधार केंद्र जाना पड़ सकता है।"]
+        ]
+    },
+
+    pan: {
+        en: [
+            ["Step 1", "Open the official Income Tax e-Filing portal."],
+            ["Step 2", "Find the PAN-related services."],
+            ["Step 3", "Choose the relevant application or correction service."],
+            ["Step 4", "Follow the official instructions and check your application status."]
+        ],
+
+        hi: [
+            ["चरण 1", "Income Tax की आधिकारिक e-Filing वेबसाइट खोलें।"],
+            ["चरण 2", "PAN से संबंधित सेवाएं खोजें।"],
+            ["चरण 3", "संबंधित आवेदन या सुधार सेवा चुनें।"],
+            ["चरण 4", "आधिकारिक निर्देशों का पालन करें और आवेदन की स्थिति देखें।"]
+        ]
+    }
+};
+
+let currentStep = 0;
+
+function getGuide() {
+    const service = document.getElementById("serviceSelect").value;
+    const lang = document.getElementById("language").value;
+
+    return guides[service][lang];
+}
+
+function updateGuide() {
+
+    const guide = getGuide();
+    const lang = document.getElementById("language").value;
+
+    document.getElementById("stepTitle").textContent =
+        guide[currentStep][0];
+
+    document.getElementById("stepText").textContent =
+        guide[currentStep][1];
+
+    document.getElementById("stepNumber").textContent =
+        lang === "en"
+        ? "Step " + (currentStep + 1) + " of " + guide.length
+        : "चरण " + (currentStep + 1) + " / " + guide.length;
+
+    document.getElementById("progressBar").style.width =
+        ((currentStep + 1) / guide.length * 100) + "%";
+
+    document.getElementById("prevBtn").disabled =
+        currentStep === 0;
+
+    document.getElementById("nextBtn").textContent =
+        currentStep === guide.length - 1
+        ? (lang === "en" ? "Restart" : "फिर से शुरू करें")
+        : (lang === "en" ? "Next Step" : "अगला चरण");
+}
+
+function nextStep() {
+
+    const guide = getGuide();
+
+    if (currentStep < guide.length - 1) {
+        currentStep++;
+    } else {
+        currentStep = 0;
+    }
+
+    updateGuide();
+}
+
+function previousStep() {
+
+    if (currentStep > 0) {
+        currentStep--;
+    }
+
+    updateGuide();
+}
+
+function resetGuide() {
+    currentStep = 0;
+    updateGuide();
+}
+
+// COMPLETE TRAINING TUTORIAL SYSTEM
+
+const tutorials = {
+
+    digilocker: {
+        link: "https://www.digilocker.gov.in/",
+
+        en: [
+            ["Lesson 1: Open DigiLocker",
+             "Visit the official DigiLocker website. Check that the website address is digilocker.gov.in before proceeding."],
+
+            ["Lesson 2: Create an Account",
+             "Choose Sign Up if you are a new user. Enter the details requested on the official portal. Follow the instructions displayed on screen."],
+
+            ["Lesson 3: Complete Verification",
+             "Complete the verification requested by DigiLocker. Enter an OTP only on the official website when you initiate the process yourself."],
+
+            ["Lesson 4: Find Your Documents",
+             "After signing in, explore the Search Documents or Issued Documents sections. Search for the document or issuing organisation you need."],
+
+            ["Lesson 5: Access Your Document",
+             "Follow the issuer's instructions to fetch an available document. Check the document details and use the available download or sharing options."]
+        ],
+
+        hi: [
+            ["पाठ 1: DigiLocker खोलें",
+             "DigiLocker की आधिकारिक वेबसाइट खोलें। आगे बढ़ने से पहले जांचें कि वेबसाइट का पता digilocker.gov.in है।"],
+
+            ["पाठ 2: अकाउंट बनाएं",
+             "नए उपयोगकर्ता Sign Up चुनें। आधिकारिक पोर्टल पर मांगी गई जानकारी भरें और स्क्रीन पर दिए गए निर्देशों का पालन करें।"],
+
+            ["पाठ 3: सत्यापन पूरा करें",
+             "DigiLocker द्वारा मांगा गया सत्यापन पूरा करें। OTP केवल आधिकारिक वेबसाइट पर तभी दर्ज करें जब आपने स्वयं प्रक्रिया शुरू की हो।"],
+
+            ["पाठ 4: अपने दस्तावेज खोजें",
+             "लॉगिन करने के बाद Search Documents या Issued Documents सेक्शन देखें। अपने जरूरी दस्तावेज या जारी करने वाली संस्था को खोजें।"],
+
+            ["पाठ 5: दस्तावेज प्राप्त करें",
+             "उपलब्ध दस्तावेज प्राप्त करने के लिए जारीकर्ता के निर्देशों का पालन करें। दस्तावेज की जानकारी जांचें और डाउनलोड या शेयर विकल्प का उपयोग करें।"]
+        ]
+    },
+
+    aadhaar: {
+        link: "https://myaadhaar.uidai.gov.in/",
+
+        en: [
+            ["Lesson 1: Open My Aadhaar",
+             "Visit the official UIDAI My Aadhaar portal. Explore the available Aadhaar services."],
+
+            ["Lesson 2: Download e-Aadhaar",
+             "Choose the Download Aadhaar service. Enter the Aadhaar number, Enrolment ID or VID as permitted by the portal."],
+
+            ["Lesson 3: Complete Verification",
+             "Enter the captcha and complete OTP verification using your registered mobile number, as instructed by the portal."],
+
+            ["Lesson 4: Download Your Aadhaar",
+             "After successful verification, download the e-Aadhaar PDF. Follow the official instructions to open the downloaded file."],
+
+            ["Lesson 5: Learn About Updates",
+             "Explore the available update services. Check online eligibility, accepted documents, charges and whether a visit to an Aadhaar centre is required."]
+        ],
+
+        hi: [
+            ["पाठ 1: My Aadhaar खोलें",
+             "UIDAI का आधिकारिक My Aadhaar पोर्टल खोलें और उपलब्ध आधार सेवाओं को देखें।"],
+
+            ["पाठ 2: e-Aadhaar डाउनलोड करें",
+             "Download Aadhaar सेवा चुनें। पोर्टल के निर्देशों के अनुसार आधार नंबर, Enrolment ID या VID दर्ज करें।"],
+
+            ["पाठ 3: सत्यापन पूरा करें",
+             "कैप्चा भरें और पोर्टल के निर्देशों के अनुसार पंजीकृत मोबाइल नंबर से OTP सत्यापन पूरा करें।"],
+
+            ["पाठ 4: अपना आधार डाउनलोड करें",
+             "सत्यापन सफल होने के बाद e-Aadhaar PDF डाउनलोड करें। फाइल खोलने के लिए आधिकारिक निर्देशों का पालन करें।"],
+
+            ["पाठ 5: अपडेट सेवाओं के बारे में जानें",
+             "उपलब्ध अपडेट सेवाओं को देखें। ऑनलाइन पात्रता, स्वीकार्य दस्तावेज, शुल्क और आधार केंद्र जाने की आवश्यकता जांचें।"]
+        ]
+    },
+
+    pan: {
+        link: "https://www.incometax.gov.in/iec/foportal/",
+
+        en: [
+            ["Lesson 1: Open the Income Tax Portal",
+             "Visit the official Income Tax e-Filing portal. Explore the PAN-related services available there."],
+
+            ["Lesson 2: Understand PAN Applications",
+             "Learn the difference between applying for a new PAN, correcting existing PAN details and applying for an eligible Instant e-PAN."],
+
+            ["Lesson 3: Check Eligibility",
+             "Before starting an application, check the eligibility conditions, required documents and application method on the official portal."],
+
+            ["Lesson 4: Complete the Application",
+             "Follow the official application instructions. Enter accurate information and submit only through the authorised application portal."],
+
+            ["Lesson 5: Check Application Status",
+             "Save your acknowledgement or reference number. Use the relevant official service to check the application status and follow further instructions."]
+        ],
+
+        hi: [
+            ["पाठ 1: Income Tax पोर्टल खोलें",
+             "Income Tax की आधिकारिक e-Filing वेबसाइट खोलें। वहां उपलब्ध PAN सेवाओं को देखें।"],
+
+            ["पाठ 2: PAN आवेदन समझें",
+             "नया PAN बनवाने, मौजूदा PAN में सुधार करने और पात्र Instant e-PAN आवेदन के बीच अंतर समझें।"],
+
+            ["पाठ 3: पात्रता जांचें",
+             "आवेदन शुरू करने से पहले आधिकारिक पोर्टल पर पात्रता की शर्तें, जरूरी दस्तावेज और आवेदन का तरीका जांचें।"],
+
+            ["पाठ 4: आवेदन पूरा करें",
+             "आधिकारिक आवेदन निर्देशों का पालन करें। सही जानकारी भरें और केवल अधिकृत आवेदन पोर्टल के माध्यम से जमा करें।"],
+
+            ["पाठ 5: आवेदन की स्थिति जांचें",
+             "अपना acknowledgement या reference number सुरक्षित रखें। संबंधित आधिकारिक सेवा से आवेदन की स्थिति जांचें।"]
+        ]
+    }
+};
+
+let tutorialStep = 0;
+
+function getTutorial() {
+
+    const service =
+        document.getElementById("tutorialSelect").value;
+
+    const lang =
+        document.getElementById("language").value;
+
+    return tutorials[service][lang];
+}
+
+function updateTutorial() {
+
+    const service =
+        document.getElementById("tutorialSelect").value;
+
+    const lang =
+        document.getElementById("language").value;
+
+    const lessons = getTutorial();
+
+    document.getElementById("tutorialTitle").textContent =
+        lessons[tutorialStep][0];
+
+    document.getElementById("tutorialText").textContent =
+        lessons[tutorialStep][1];
+
+    document.getElementById("tutorialCounter").textContent =
+        lang === "en"
+        ? "Lesson " + (tutorialStep + 1) + " of " + lessons.length
+        : "पाठ " + (tutorialStep + 1) + " / " + lessons.length;
+
+    document.getElementById("tutorialProgress").style.width =
+        ((tutorialStep + 1) / lessons.length * 100) + "%";
+
+    document.getElementById("tutorialPrev").disabled =
+        tutorialStep === 0;
+
+    document.getElementById("tutorialNext").textContent =
+        tutorialStep === lessons.length - 1
+        ? (lang === "en" ? "Restart Course" : "कोर्स फिर शुरू करें")
+        : (lang === "en" ? "Next Lesson" : "अगला पाठ");
+
+    const officialLink =
+        document.getElementById("tutorialOfficialLink");
+
+    officialLink.href = tutorials[service].link;
+
+    officialLink.textContent =
+        lang === "en"
+        ? "Visit Official Website →"
+        : "आधिकारिक वेबसाइट खोलें →";
+}
+
+function nextTutorial() {
+
+    const lessons = getTutorial();
+
+    if (tutorialStep < lessons.length - 1) {
+        tutorialStep++;
+    } else {
+        tutorialStep = 0;
+    }
+
+    updateTutorial();
+}
+
+function previousTutorial() {
+
+    if (tutorialStep > 0) {
+        tutorialStep--;
+    }
+
+    updateTutorial();
+}
+
+function resetTutorial() {
+
+    tutorialStep = 0;
+    updateTutorial();
+}
+
+// SERVICE SEARCH FUNCTION
+
+function searchServices() {
+
+    let input = document
+        .getElementById("serviceSearch")
+        .value.toLowerCase();
+
+    let cards = document.querySelectorAll(
+        "#services .card"
+    );
+
+    cards.forEach(card => {
+
+        let text = card.innerText.toLowerCase();
+
+        card.style.display =
+            text.includes(input) ? "block" : "none";
+
+    });
+
+}
+
+// START GUIDE
+
+updateGuide();
+updateTutorial();
+
+</script>
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("navMenu")
+    .classList.toggle("active");
+}
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+    link.addEventListener("click", function() {
+        document.getElementById("navMenu")
+        .classList.remove("active");
+    });
+});
+
+</script>
+
+</body>
+</html>
